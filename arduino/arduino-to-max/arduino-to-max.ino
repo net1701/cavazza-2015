@@ -1,5 +1,5 @@
 
-const int NINPUTS = 2;
+const int NINPUTS = 12;
 int pin_status[NINPUTS];
 
 void setup() {
@@ -15,19 +15,19 @@ void loop() {
     int x = digitalRead(i+2);
     if (x != pin_status[i]) {
       
-      /*
-      Serial.print("pin ");
+/*      Serial.print("pin ");
       Serial.print(i+2);
       Serial.print(" ");
       Serial.print(x);
       Serial.print('\n');
-      */
-      
-      if (x==1) Serial.write(i+2);
+*/      
       pin_status[i] = x;
+      
+      if (x==0) {
+        Serial.write(i+2);
+      }
     }
   }  
   
   delay(10);
 }
-
